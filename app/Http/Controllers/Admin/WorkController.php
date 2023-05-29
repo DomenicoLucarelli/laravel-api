@@ -48,6 +48,7 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validation($request);
 
         $formData = $request->all();
@@ -106,7 +107,8 @@ class WorkController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Work $work)
-    {
+    {   
+        // dd($request);
         $this->my_validation($request, $work->id);
 
         $formData= $request->all();
