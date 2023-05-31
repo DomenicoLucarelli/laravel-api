@@ -19,4 +19,24 @@ class WorkController extends Controller
 
         ]);
     }
+
+    public function show($slug){
+
+        $work = Work::where('slug', $slug)->with('type', 'technologies')->first();
+
+        if($work){
+
+            return response()->json([
+    
+                'success' => true,
+                'result' => $work
+            ]);
+        }else{
+            return response()->json([
+    
+                'success' => false,
+                'error' => 'La card non esiste'
+            ]);
+        };
+    }
 }

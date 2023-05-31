@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('works', [WorkController::class, 'index'])->name('works.api');
+Route::get('works', [WorkController::class, 'index'])->name('index');
+Route::get('works/{slug}', [WorkController::class, 'show']);
